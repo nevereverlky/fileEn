@@ -23,9 +23,7 @@ import java.io.FileOutputStream;
 public class FileController {
 
     private String encKey = "UM0QMU7mWCDQTxaP";
-    private File sourceFile;
-    private File encFile;
-    private File decFile;
+
 
 
     // 初始化
@@ -60,9 +58,11 @@ public class FileController {
 
 
     // 加密
-    void encryptFile(String filePath) throws Exception {
-        sourceFile = new File(filePath + "1.jpg");
-        encFile = new File(filePath + "1-enc.jpg");
+    void encryptFile(String filePath, String fileName) throws Exception {
+        File sourceFile;
+        File encFile;
+        sourceFile = new File(filePath + fileName);
+        encFile = new File(filePath + fileName + ".llcc");
 
 
         // 加密
@@ -74,10 +74,12 @@ public class FileController {
     }
 
     // 解密
-    void decryptFile(String filePath) throws Exception {
+    void decryptFile(String filePath, String fileName) throws Exception {
+        File encFile;
+        File decFile;
 
-        encFile = new File(filePath + "1-enc.jpg");
-        decFile = new File(filePath + "1-dec.jpg");
+        encFile = new File(filePath + fileName);
+        decFile = new File(filePath + (fileName.substring(0, fileName.length() - 5)));
 
 
         // 解密
@@ -93,9 +95,10 @@ public class FileController {
     * 加密
     */
     @GetMapping("/enFile")
-    public void enFile(@RequestParam(value = "filePath") String filePath) throws Exception {
+    public void enFile(@RequestParam(value = "filePath") String filePath,
+                       @RequestParam(value = "fileName") String fileName) throws Exception {
 
-        encryptFile(filePath);
+        encryptFile(filePath, fileName);
 
     }
 
@@ -106,8 +109,9 @@ public class FileController {
     * 解密
     */
     @GetMapping("/deFile")
-    public void deFile(@RequestParam(value = "filePath") String filePath) throws Exception {
-        decryptFile(filePath);
+    public void deFile(@RequestParam(value = "filePath") String filePath,
+                       @RequestParam(value = "fileName") String fileName) throws Exception {
+        decryptFile(filePath, fileName);
 
     }
 
