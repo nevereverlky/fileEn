@@ -22,7 +22,7 @@ import java.io.FileOutputStream;
 @RestController
 public class FileController {
 
-    private String encKey;
+    private String encKey = "UM0QMU7mWCDQTxaP";
     private File sourceFile;
     private File encFile;
     private File decFile;
@@ -75,7 +75,9 @@ public class FileController {
 
     // 解密
     void decryptFile(String filePath) throws Exception {
-        decFile = new File(filePath);
+
+        encFile = new File(filePath + "1-enc.jpg");
+        decFile = new File(filePath + "1-dec.jpg");
 
 
         // 解密
@@ -86,6 +88,10 @@ public class FileController {
     }
 
 
+    /**
+    *
+    * 加密
+    */
     @GetMapping("/enFile")
     public void enFile(@RequestParam(value = "filePath") String filePath) throws Exception {
 
@@ -94,9 +100,13 @@ public class FileController {
     }
 
 
+
+    /**
+    *
+    * 解密
+    */
     @GetMapping("/deFile")
     public void deFile(@RequestParam(value = "filePath") String filePath) throws Exception {
-        setUp();
         decryptFile(filePath);
 
     }
