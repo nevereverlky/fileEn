@@ -149,6 +149,7 @@ public class FileCryptoUtil {
      * @throws InvalidAlgorithmParameterException
      */
     private static Cipher getCipher(byte[] encKeyBytes, byte[] ivBytes, int encryptMode) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
+//        Cipher cipher = Cipher.getInstance("AES/CTR/PKCS5Padding");
         Cipher cipher = Cipher.getInstance("AES/CFB/PKCS5Padding");
         SecretKeySpec secretKeySpec = new SecretKeySpec(encKeyBytes, "AES");
         IvParameterSpec iv = new IvParameterSpec(ivBytes);
