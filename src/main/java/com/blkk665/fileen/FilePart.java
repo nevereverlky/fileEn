@@ -29,8 +29,13 @@ public class FilePart {
      * @throws IOException
      */
     private static void testFilePart() throws IOException {
-        File sourceFile = new File("/Users/pluttt/Downloads/jm/1.mkv");
-        String chunkPath = "/Users/pluttt/Downloads/jm/cut/";
+        // mac
+//        File sourceFile = new File("/Users/pluttt/Downloads/jm/1.mkv");
+//        String chunkPath = "/Users/pluttt/Downloads/jm/cut/";
+
+        //win
+        File sourceFile = new File("D:\\jm\\1.mkv");
+        String chunkPath = "D:\\jm\\cut\\";
         File chunkFolder = new File(chunkPath);
         // 如果该文件夹
         if (!chunkFolder.exists()) {
