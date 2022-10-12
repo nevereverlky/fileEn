@@ -1,0 +1,8 @@
+Java文件分块读写，文件分片读写（大文件分块写入本地并合入）
+https://blog.csdn.net/m0_57640408/article/details/120924293
+
+java:分块上传 和 合并分块
+https://www.cnblogs.com/yxj808/p/14808835.html
+
+des和http
+https://juejin.cn/post/6931272155166588941
